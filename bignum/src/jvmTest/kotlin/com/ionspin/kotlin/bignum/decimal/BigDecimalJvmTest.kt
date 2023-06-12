@@ -43,6 +43,23 @@ class BigDecimalJvmTest {
     val random = Random(seed)
 
     @Test
+    fun arithmeticExceptionDouble() {
+        assertTrue {
+            val value = 2.001.toBigDecimal().doubleValue()
+            2.001 == value
+        }
+    }
+
+    @Test
+    fun arithmeticExceptionFloat() {
+        assertTrue {
+            val value = BigDecimal.fromFloat(0.001f).floatValue()
+            2.001f == value
+        }
+    }
+
+
+    @Test
     fun testCreation() {
         assertTrue {
             val bigDecimal = BigDecimal.fromLongWithExponent(123L, 5)
